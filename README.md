@@ -39,23 +39,32 @@ Print2Blood is a machine learning research project that investigates eight-class
 
 ```text
 Print2Blood/
+├── README.md
+├── LICENSE
+├── .gitignore
+├── requirements.txt
 ├── data/
-├── splits/
+│   ├── README.md
+│   ├── raw/
+│   └── splits/
 ├── src/
 │   ├── data_loader.py
+│   ├── split_data.py
 │   ├── preprocessing.py
 │   ├── features.py
-│   ├── split_data.py
 │   ├── classical_ml.py
 │   ├── deep_learning.py
 │   ├── evaluation.py
 │   └── statistics.py
+├── scripts/
+│   ├── train_classical.py
+│   ├── train_deep.py
+│   └── compare_models.py
 ├── models/
 ├── outputs/
-├── app.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+│   ├── figures/
+│   └── results/
+└── app.py
 ```
 
 ## Installation

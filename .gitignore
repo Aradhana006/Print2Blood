@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Print2Blood — local data and artifacts (keep .gitkeep placeholders)
+data/raw/*
+!data/raw/.gitkeep
+models/*
+!models/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+outputs/results/*
+!outputs/results/.gitkeep
