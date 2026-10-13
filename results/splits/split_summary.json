@@ -1,0 +1,53 @@
+{
+  "total_images": 6000,
+  "total_groups": 5985,
+  "train_count": 4200,
+  "validation_count": 900,
+  "test_count": 900,
+  "train_pct": 0.7,
+  "validation_pct": 0.15,
+  "test_pct": 0.15,
+  "random_seed": 42,
+  "target_ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "class_counts": {
+    "A+": 565,
+    "A-": 1009,
+    "AB+": 708,
+    "AB-": 761,
+    "B+": 652,
+    "B-": 741,
+    "O+": 852,
+    "O-": 712
+  },
+  "group_counts": {
+    "train": 4188,
+    "validation": 899,
+    "test": 898
+  },
+  "grouping_method": "exact_md5_plus_same_label_phash_confirmed_by_ssim",
+  "similarity_method": "phash",
+  "threshold": {
+    "phash_max_hamming": 6,
+    "dhash_max_hamming": 6,
+    "ahash_max_hamming": 0,
+    "ssim_min_score": 0.92,
+    "confirm_with_ssim": true,
+    "confirm_ssim_min_score": 0.9
+  },
+  "group_meta": {
+    "total_images": 6000,
+    "total_groups": 5985,
+    "exact_duplicate_groups": 11,
+    "similarity_merged_groups": 0,
+    "singleton_groups": 5974,
+    "similarity_merges_applied": 0
+  },
+  "similarity_stats": {
+    "reused": true
+  },
+  "disclaimer": "This grouping strategy attempts to prevent obvious duplicate or highly similar fingerprint images from crossing train/validation/test boundaries. Because participant identifiers are unavailable, the groups cannot be interpreted as confirmed human subjects."
+}

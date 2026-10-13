@@ -1,0 +1,40 @@
+{
+  "dataset_path": "dataset/dataset_blood_group",
+  "classes": ["A+", "A-", "AB+", "AB-", "B+", "B-", "O+", "O-"],
+  "random_seed": 42,
+  "train_ratio": 0.70,
+  "validation_ratio": 0.15,
+  "test_ratio": 0.15,
+  "hash_algorithm": "md5",
+  "similarity_methods": ["phash", "dhash", "ssim", "ahash"],
+  "selected_similarity_method": "phash",
+  "similarity_thresholds": {
+    "phash_max_hamming": 6,
+    "dhash_max_hamming": 6,
+    "ahash_max_hamming": 0,
+    "ssim_min_score": 0.92,
+    "confirm_with_ssim": true,
+    "confirm_ssim_min_score": 0.90
+  },
+  "grouping_method": "exact_md5_plus_same_label_phash_confirmed_by_ssim",
+  "grouping_notes": [
+    "Exact MD5 duplicates always share a group_id.",
+    "Additional merges occur only for same-label pairs that pass pHash and SSIM thresholds.",
+    "Cross-label similarity is reported for diagnostics but never used for grouping.",
+    "Proxy groups are NOT confirmed human subjects."
+  ],
+  "hash_size": 16,
+  "ssim_resize": [64, 64],
+  "max_similarity_pairs_saved": 20000,
+  "max_similarity_examples": 24,
+  "paths": {
+    "master_split": "data/splits/master_split.csv",
+    "split_groups": "data/splits/split_groups.csv",
+    "exact_duplicate_groups": "results/splits/exact_duplicate_groups.csv",
+    "similarity_analysis": "results/splits/similarity_analysis.csv",
+    "similarity_examples": "results/splits/similarity_examples",
+    "split_summary_csv": "results/splits/split_summary.csv",
+    "split_summary_json": "results/splits/split_summary.json",
+    "validation_report": "results/splits/split_validation_report.md"
+  }
+}

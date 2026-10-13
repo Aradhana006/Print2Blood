@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+backend/fingerabo.db
+backend/*.db
+storage/tmp/
+node_modules/
+frontend/dist/
+models/registry/**/cache/
+*.log
+.ipynb_checkpoints/
+.vscode/
+.idea/

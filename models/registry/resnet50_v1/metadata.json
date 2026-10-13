@@ -1,0 +1,26 @@
+{
+  "id": "resnet50_v1",
+  "model_name": "ResNet50",
+  "version": "v1",
+  "architecture": "ResNet50",
+  "weights_path": "G:\\fingerprint-based-blood-group-detection-main\\test\\model_blood_group_detection_resnet.h5",
+  "image_size": 256,
+  "status": "DEPLOYED",
+  "is_active": true,
+  "accuracy": 0.8142,
+  "macro_f1": 0.82,
+  "split_type": "random_image_split_notebook",
+  "class_labels": [
+    "A+",
+    "A-",
+    "AB+",
+    "AB-",
+    "B+",
+    "B-",
+    "O+",
+    "O-"
+  ],
+  "preprocessing_version": "resnet50.preprocess_input@256",
+  "disclaimer": "Research prototype only. Fingerprint-based blood-group prediction is experimental and must not replace laboratory blood-group testing.",
+  "notes": "Imported existing trained weights without modification. Reported 81.42% accuracy comes from the original random 80/20 notebook split and is NOT a leakage-controlled evaluation."
+}

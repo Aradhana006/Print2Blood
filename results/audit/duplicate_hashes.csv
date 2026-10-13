@@ -1,0 +1,12 @@
+md5,count,filepaths
+41e6b75fac2197a47011215246ccbe75,2,dataset/dataset_blood_group/AB+/cluster_4_4296.BMP | dataset/dataset_blood_group/AB+/cluster_4_5675.BMP
+4b575ad5696800ae107d625b7926fecc,2,dataset/dataset_blood_group/O-/cluster_7_1040.BMP | dataset/dataset_blood_group/O-/cluster_7_5447.BMP
+5bc9f955f6aca66e01eacca978785712,2,dataset/dataset_blood_group/O+/cluster_6_3415.BMP | dataset/dataset_blood_group/O+/cluster_6_720.BMP
+6e145219767696e7e38e5cbedb64f23f,3,dataset/dataset_blood_group/O-/cluster_7_1468.BMP | dataset/dataset_blood_group/O-/cluster_7_1819.BMP | dataset/dataset_blood_group/O-/cluster_7_5380.BMP
+7156364db4a9b179de71260130cb3157,5,dataset/dataset_blood_group/B+/cluster_2_2511.BMP | dataset/dataset_blood_group/B+/cluster_2_4268.BMP | dataset/dataset_blood_group/B+/cluster_2_5333.BMP | dataset/dataset_blood_group/B+/cluster_2_5356.BMP | dataset/dataset_blood_group/B+/cluster_2_829.BMP
+9a50be234c4448e271626f2994d4ea44,2,dataset/dataset_blood_group/AB+/cluster_4_3003.BMP | dataset/dataset_blood_group/AB+/cluster_4_325.BMP
+b77c98754fcfa5261d8847ae006b5055,2,dataset/dataset_blood_group/O-/cluster_7_2270.BMP | dataset/dataset_blood_group/O-/cluster_7_5326.BMP
+d51bd751cf43cf8f227853c9c8766ffb,2,dataset/dataset_blood_group/AB+/cluster_4_193.BMP | dataset/dataset_blood_group/AB+/cluster_4_397.BMP
+d7728bc4fd73d9d6b46c2e6c8237230b,2,dataset/dataset_blood_group/A-/cluster_1_120.BMP | dataset/dataset_blood_group/A-/cluster_1_1694.BMP
+e3f02deb381b545f461a4e8d00c55a81,2,dataset/dataset_blood_group/AB-/cluster_5_2347.BMP | dataset/dataset_blood_group/AB-/cluster_5_4907.BMP
+f6dff321b3cca995b9f65c71e66a1b10,2,dataset/dataset_blood_group/O-/cluster_7_3871.BMP | dataset/dataset_blood_group/O-/cluster_7_4235.BMP

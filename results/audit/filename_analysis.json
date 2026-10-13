@@ -1,0 +1,24 @@
+{
+  "naming_pattern": "cluster_<class_code>_<image_id>.BMP",
+  "cluster_to_class": {
+    "0": "A+",
+    "1": "A-",
+    "2": "B+",
+    "3": "B-",
+    "4": "AB+",
+    "5": "AB-",
+    "6": "O+",
+    "7": "O-"
+  },
+  "all_names_match_pattern": true,
+  "all_clusters_match_folder_labels": true,
+  "unique_filenames": 6000,
+  "total_files": 6000,
+  "unique_image_ids": 6000,
+  "image_id_min": 0,
+  "image_id_max": 5999,
+  "image_ids_spanning_multiple_classes": 0,
+  "subject_id_field_present": false,
+  "subject_id_evidence": "No explicit subject/person ID field was found. Filenames use cluster_<0-7>_<image_id>, where cluster maps 1:1 to blood-group folder. Numeric image_ids are unique across the whole dataset (0..5999 style indexing), so they behave like global sample indices, not verified participant IDs. Near-duplicate aHash grouping is an imperfect proxy and must not be treated as true subjects.",
+  "example_multi_class_ids": {}
+}

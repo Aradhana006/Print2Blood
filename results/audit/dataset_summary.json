@@ -1,0 +1,168 @@
+{
+  "dataset": {
+    "dataset_path": "dataset/dataset_blood_group",
+    "total_images": 6000,
+    "readable_images": 6000,
+    "corrupted_images": 0,
+    "corrupted_examples": [],
+    "class_counts": {
+      "A+": 565,
+      "A-": 1009,
+      "AB+": 708,
+      "AB-": 761,
+      "B+": 652,
+      "B-": 741,
+      "O+": 852,
+      "O-": 712
+    },
+    "majority_class": "A-",
+    "majority_baseline_accuracy": 0.16816666666666666,
+    "dominant_size": "96x103",
+    "num_distinct_sizes": 2,
+    "size_counts": {
+      "96x103": 5956,
+      "241x298": 44
+    },
+    "dominant_channels": 4,
+    "brightness_min": 86.77639770507812,
+    "brightness_max": 224.11279296875,
+    "brightness_mean": 165.66912879689534,
+    "contrast_min": 60.023189544677734,
+    "contrast_max": 114.05491638183594,
+    "contrast_mean": 86.38262669245402,
+    "extensions": {
+      "bmp": 6000
+    },
+    "channel_notes": "5956 images are 96x103x4 (RGBA BMP); 44 images are 241x298x3 (RGB)."
+  },
+  "leakage_proxy": {
+    "exact_duplicate_groups": 11,
+    "exact_duplicate_extra_files": 15,
+    "identical_ahash_pairs": 11994,
+    "near_duplicate_pairs": 11995,
+    "near_duplicate_same_label_fraction": 0.2463526469362234,
+    "near_duplicate_cross_label_pairs": 9040,
+    "disclaimer": "Near-duplicate grouping uses average hash similarity. It is not equivalent to verified subject IDs.",
+    "exact_duplicate_files": 26,
+    "ahash_too_coarse": true,
+    "ahash_interpretation": "Only 24.6% of identical-aHash pairs share a label, so aHash is too coarse for subject inference on this dataset. Use exact MD5 duplicates as hard evidence; do not equate aHash groups with subject IDs."
+  },
+  "filename_analysis": {
+    "naming_pattern": "cluster_<class_code>_<image_id>.BMP",
+    "cluster_to_class": {
+      "0": "A+",
+      "1": "A-",
+      "2": "B+",
+      "3": "B-",
+      "4": "AB+",
+      "5": "AB-",
+      "6": "O+",
+      "7": "O-"
+    },
+    "all_names_match_pattern": true,
+    "all_clusters_match_folder_labels": true,
+    "unique_filenames": 6000,
+    "total_files": 6000,
+    "unique_image_ids": 6000,
+    "image_id_min": 0,
+    "image_id_max": 5999,
+    "image_ids_spanning_multiple_classes": 0,
+    "subject_id_field_present": false,
+    "subject_id_evidence": "No explicit subject/person ID field was found. Filenames use cluster_<0-7>_<image_id>, where cluster maps 1:1 to blood-group folder. Numeric image_ids are unique across the whole dataset (0..5999 style indexing), so they behave like global sample indices, not verified participant IDs. Near-duplicate aHash grouping is an imperfect proxy and must not be treated as true subjects.",
+    "example_multi_class_ids": {}
+  },
+  "project_facts": {
+    "reported_resnet50_accuracy_source": {
+      "file": "code/Resnet34/Resnet.ipynb",
+      "metric_text": "Test Accuracy: 81.42%",
+      "test_loss": 0.58375,
+      "macro_f1": 0.82,
+      "evaluation_set_size": 1200,
+      "notes": "Value comes from saved notebook cell output after model.evaluate(valid_gen). valid_gen is built from the 20% test split, which is also passed as validation_data during fit()."
+    },
+    "split_strategy": {
+      "method": "sklearn.model_selection.train_test_split",
+      "test_size": 0.2,
+      "random_state_on_split": 42,
+      "stratify": null,
+      "prior_shuffle": "data.sample(frac=1) with NO random_state, then reset_index",
+      "deterministic_across_runs": false,
+      "reason_not_fully_deterministic": "Unseeded DataFrame.sample(frac=1) reorders rows before train_test_split. Even with random_state=42, the content mapped to shuffled indices changes across runs.",
+      "validation_set": "None dedicated; test split used as validation_data during training",
+      "subject_aware": false
+    },
+    "preprocessing_by_model": {
+      "all_models": "tensorflow.keras.applications.resnet50.preprocess_input",
+      "augmentation": "None (ImageDataGenerator only applies preprocess_input)",
+      "lenet_image_size": [
+        224,
+        224
+      ],
+      "alexnet_image_size": [
+        256,
+        256
+      ],
+      "vgg16_image_size": [
+        256,
+        256
+      ],
+      "resnet50_image_size": [
+        256,
+        256
+      ],
+      "fingerprint_specific_pipeline": false
+    },
+    "training_hyperparameters": {
+      "optimizer": "adam (Keras default learning rate, typically 0.001)",
+      "explicit_learning_rate": null,
+      "loss": "categorical_crossentropy",
+      "batch_size": 32,
+      "epochs": 20,
+      "class_weight": null,
+      "metrics": [
+        "accuracy"
+      ]
+    },
+    "resnet50_architecture": {
+      "backbone": "ResNet50",
+      "folder_name_mismatch": "Folder is Resnet34 but code uses ResNet50",
+      "weights": "imagenet",
+      "include_top": false,
+      "pooling": "avg",
+      "backbone_trainable": false,
+      "head": [
+        "Dense(128, relu)",
+        "Dense(128, relu)",
+        "Dense(8, softmax)"
+      ],
+      "dropout_in_head": false,
+      "batchnorm_in_head": false
+    },
+    "leakage_and_evaluation_risks": [
+      "Random image-level 80/20 split with no subject constraint",
+      "No verified subject IDs in filenames or metadata",
+      "Test split used as validation during training (no held-out final test)",
+      "Unseeded shuffle before split reduces reproducibility of the exact 81.42% figure",
+      "Hardcoded label index map in inference cells may disagree with train_gen.class_indices order",
+      "Prediction confidence is not a calibrated probability"
+    ],
+    "other_model_notebook_results": {
+      "LeNet": {
+        "accuracy": 0.775,
+        "loss": 1.15884
+      },
+      "VGG16": {
+        "accuracy": 0.7375,
+        "loss": 1.04504
+      },
+      "AlexNet": {
+        "accuracy": 0.1633,
+        "loss": 2.0696
+      },
+      "ResNet50": {
+        "accuracy": 0.8142,
+        "loss": 0.58375
+      }
+    }
+  }
+}

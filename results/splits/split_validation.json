@@ -1,0 +1,145 @@
+{
+  "overall": "PASS",
+  "critical_fail": false,
+  "checks": [
+    {
+      "name": "required_columns",
+      "status": "PASS",
+      "detail": "All required columns present",
+      "critical": true
+    },
+    {
+      "name": "duplicate_image_paths",
+      "status": "PASS",
+      "detail": "0 duplicate image_path rows",
+      "critical": true
+    },
+    {
+      "name": "invalid_labels",
+      "status": "PASS",
+      "detail": "Labels restricted to expected classes",
+      "critical": true
+    },
+    {
+      "name": "invalid_splits",
+      "status": "PASS",
+      "detail": "Splits restricted to train/validation/test",
+      "critical": true
+    },
+    {
+      "name": "group_leakage",
+      "status": "PASS",
+      "detail": "0 groups appear in multiple splits",
+      "critical": true
+    },
+    {
+      "name": "exact_duplicate_leakage",
+      "status": "PASS",
+      "detail": "0 MD5 hashes appear in multiple splits",
+      "critical": false
+    },
+    {
+      "name": "train_test_overlap",
+      "status": "PASS",
+      "detail": "0 overlapping image paths",
+      "critical": true
+    },
+    {
+      "name": "train_validation_overlap",
+      "status": "PASS",
+      "detail": "0 overlapping image paths",
+      "critical": true
+    },
+    {
+      "name": "validation_test_overlap",
+      "status": "PASS",
+      "detail": "0 overlapping image paths",
+      "critical": true
+    },
+    {
+      "name": "missing_classes_overall",
+      "status": "PASS",
+      "detail": "All classes present in dataset index",
+      "critical": true
+    },
+    {
+      "name": "missing_classes_per_split",
+      "status": "PASS",
+      "detail": "All classes appear in every split",
+      "critical": false
+    },
+    {
+      "name": "split_proportions",
+      "status": "PASS",
+      "detail": "train=0.700, validation=0.150, test=0.150 (targets 0.70/0.15/0.15; group constraints apply)",
+      "critical": false
+    },
+    {
+      "name": "split_groups_consistency",
+      "status": "PASS",
+      "detail": "0 group_id split mismatches vs split_groups.csv",
+      "critical": true
+    }
+  ],
+  "counts": {
+    "total_images": 6000,
+    "total_groups": 5985,
+    "train": 4200,
+    "validation": 900,
+    "test": 900,
+    "class_counts": {
+      "A+": 565,
+      "A-": 1009,
+      "AB+": 708,
+      "AB-": 761,
+      "B+": 652,
+      "B-": 741,
+      "O+": 852,
+      "O-": 712
+    },
+    "split_class_counts": {
+      "test": {
+        "A+": 85,
+        "A-": 151,
+        "AB+": 106,
+        "AB-": 114,
+        "B+": 98,
+        "B-": 111,
+        "O+": 128,
+        "O-": 107
+      },
+      "train": {
+        "A+": 395,
+        "A-": 707,
+        "AB+": 496,
+        "AB-": 533,
+        "B+": 456,
+        "B-": 519,
+        "O+": 596,
+        "O-": 498
+      },
+      "validation": {
+        "A+": 85,
+        "A-": 151,
+        "AB+": 106,
+        "AB-": 114,
+        "B+": 98,
+        "B-": 111,
+        "O+": 128,
+        "O-": 107
+      }
+    }
+  },
+  "overlaps": {
+    "train_test_overlap": 0,
+    "train_validation_overlap": 0,
+    "validation_test_overlap": 0
+  },
+  "hash_leak": 0,
+  "group_leak": 0,
+  "missing_per_split": {
+    "train": [],
+    "validation": [],
+    "test": []
+  }
+}

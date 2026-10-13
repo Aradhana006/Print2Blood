@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: fingerabo
+      POSTGRES_PASSWORD: fingerabo
+      POSTGRES_DB: fingerabo
+    ports:
+      - "5432:5432"
+    volumes:
+      - fingerabo_pg:/var/lib/postgresql/data
+
+volumes:
+  fingerabo_pg:

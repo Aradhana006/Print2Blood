@@ -1,0 +1,7 @@
+{
+  "accuracy": 0.8142,
+  "macro_f1": 0.82,
+  "split_type": "random_image_split_notebook",
+  "source": "code/Resnet34/Resnet.ipynb saved output",
+  "warning": "Not evaluated under leakage-controlled proxy split yet."
+}

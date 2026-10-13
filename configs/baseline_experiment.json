@@ -1,0 +1,58 @@
+{
+  "experiment_name": "baseline_resnet50_random_image_split",
+  "purpose": "Reproduce the existing notebook baseline. Do not change model architecture in this phase.",
+  "dataset_path": "dataset/dataset_blood_group",
+  "classes": ["A+", "A-", "AB+", "AB-", "B+", "B-", "O+", "O-"],
+  "random_seed": 42,
+  "split_strategy": {
+    "type": "random_image_split",
+    "test_size": 0.2,
+    "stratify": false,
+    "validation_set": "none_dedicated_test_used_as_validation",
+    "subject_aware": false,
+    "notes": [
+      "Existing notebooks call data.sample(frac=1) without a seed before train_test_split.",
+      "For reproduction, disable unseeded sampling and shuffle only inside train_test_split with random_seed=42.",
+      "This config freezes the intended baseline protocol; it does not claim the historical 81.42% is bit-identical."
+    ]
+  },
+  "image_size": [256, 256],
+  "batch_size": 32,
+  "epochs": 20,
+  "optimizer": {
+    "name": "adam",
+    "learning_rate": 0.001,
+    "learning_rate_was_explicit_in_original": false
+  },
+  "loss": "categorical_crossentropy",
+  "metrics": ["accuracy"],
+  "class_weight": null,
+  "augmentation": {
+    "enabled": false,
+    "operations": []
+  },
+  "preprocessing": {
+    "pipeline": ["load_image", "resize", "resnet50.preprocess_input"],
+    "fingerprint_specific": false
+  },
+  "model": {
+    "name": "ResNet50",
+    "weights": "imagenet",
+    "include_top": false,
+    "pooling": "avg",
+    "backbone_trainable": false,
+    "head": [
+      {"type": "Dense", "units": 128, "activation": "relu"},
+      {"type": "Dense", "units": 128, "activation": "relu"},
+      {"type": "Dense", "units": 8, "activation": "softmax"}
+    ]
+  },
+  "reported_baseline_result": {
+    "source": "code/Resnet34/Resnet.ipynb saved output",
+    "accuracy": 0.8142,
+    "loss": 0.58375,
+    "macro_f1": 0.82,
+    "support": 1200
+  },
+  "status": "audit_complete_training_not_run"
+}
