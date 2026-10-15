@@ -13,6 +13,51 @@ export type PredictResponse = {
   disclaimer: string
 }
 
+export type AnalyzeResponse = {
+  request_id: string
+  prediction: string
+  confidence: number
+  confidence_band: { level: string; meaning: string }
+  probabilities: Record<string, number>
+  top3: { label: string; probability: number }[]
+  model_name: string
+  model_version: string
+  model_id: string
+  timestamp: string
+  image_hash: string
+  quality: {
+    width: number
+    height: number
+    brightness: number
+    contrast: number
+    sharpness: number
+    scores: {
+      overall: number
+      sharpness: number
+      contrast: number
+      brightness: number
+      ridge_activity: number
+    }
+    verdict: string
+    tip: string
+    pattern: {
+      pattern_estimate: string
+      orientation_peak: number
+      orientation_entropy: number
+      orientation_coherence: number
+      note: string
+    }
+  }
+  explainability: {
+    method: string
+    heatmap_overlay_jpeg_base64: string
+    enhanced_fingerprint_jpeg_base64: string
+    interpretation: string
+  }
+  ai_insights: string[]
+  disclaimer: string
+}
+
 export type DashboardSummary = {
   app_name: string
   total_dataset_images: number

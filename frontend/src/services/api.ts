@@ -1,4 +1,10 @@
-import type { DashboardSummary, ModelInfo, PredictResponse, PredictionHistoryItem } from '../types'
+import type {
+  AnalyzeResponse,
+  DashboardSummary,
+  ModelInfo,
+  PredictResponse,
+  PredictionHistoryItem,
+} from '../types'
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? ''
 
@@ -41,6 +47,18 @@ export async function predictFingerprint(file: File): Promise<PredictResponse> {
   body.append('file', file)
   const res = await ensureOk(
     await fetch(`${API_BASE}/api/predict`, {
+      method: 'POST',
+      body,
+    }),
+  )
+  return res.json()
+}
+
+export async function analyzeFingerprint(file: File): Promise<AnalyzeResponse> {
+  const body = new FormData()
+  body.append('file', file)
+  const res = await ensureOk(
+    await fetch(`${API_BASE}/api/analyze`, {
       method: 'POST',
       body,
     }),

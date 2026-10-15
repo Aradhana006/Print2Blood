@@ -10,6 +10,7 @@ from app.core.config import Settings, get_settings
 from app.core.database import get_db
 from app.models.entities import ModelVersion, Prediction
 from app.schemas.prediction import DashboardSummary, ModelInfo, PredictResponse
+from app.services.full_analysis import run_full_analysis
 from app.services.prediction import run_prediction
 from app.services.registry import DISCLAIMER, ensure_resnet50_v1_registered
 
@@ -108,6 +109,21 @@ async def predict(
     settings: Settings = Depends(get_settings),
 ):
     return run_prediction(db, settings, file)
+
+
+@router.post("/analyze")
+async def analyze(
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    settings: Settings = Depends(get_settings),
+):
+    """Full AI analysis: prediction + quality + pattern cue + explainability heatmap."""
+    try:
+        return run_full_analysis(db, settings, file)
+    except Exception as exc:  # noqa: BLE001
+        from fastapi import HTTPException
+
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {exc}") from exc
 
 
 @router.get("/predictions")
