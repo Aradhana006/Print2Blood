@@ -1,0 +1,47 @@
+{
+  "test": "chi_square_and_cramers_v",
+  "rows": "blood_group_label",
+  "columns": "pattern_heuristic",
+  "pattern_label_validity": "Heuristic orientation cue only (Arch-like/Loop-like/Whorl-like). Not AFIS-certified pattern ground truth.",
+  "assumptions": [
+    "Independence of observations is approximate; images may share acquisition context.",
+    "Expected cell counts should be >= 5 for asymptotic chi-square; inspect contingency table."
+  ],
+  "n_images": 6000,
+  "contingency_table": {
+    "Arch-like": {
+      "A+": 268,
+      "A-": 177,
+      "AB+": 705,
+      "AB-": 293,
+      "B+": 636,
+      "B-": 124,
+      "O+": 164,
+      "O-": 402
+    },
+    "Loop-like": {
+      "A+": 287,
+      "A-": 751,
+      "AB+": 3,
+      "AB-": 433,
+      "B+": 16,
+      "B-": 515,
+      "O+": 631,
+      "O-": 302
+    },
+    "Whorl-like": {
+      "A+": 10,
+      "A-": 81,
+      "AB+": 0,
+      "AB-": 35,
+      "B+": 0,
+      "B-": 102,
+      "O+": 57,
+      "O-": 8
+    }
+  },
+  "chi2": 2485.1624123114116,
+  "p_value": 0.0,
+  "degrees_of_freedom": 14,
+  "cramers_v": 0.4550789686335962
+}

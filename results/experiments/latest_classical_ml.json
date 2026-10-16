@@ -1,0 +1,47 @@
+{
+  "experiment_dir": "results/experiments/classical_ml_20261015T170906Z",
+  "experiment_type": "classical_ml",
+  "master_split": "data/splits/master_split.csv",
+  "split_counts": {
+    "train": 4200,
+    "validation": 900,
+    "test": 900
+  },
+  "feature_representation": "hog",
+  "hog_params": {
+    "image_size": 128,
+    "orientations": 9,
+    "pixels_per_cell": [
+      8,
+      8
+    ],
+    "cells_per_block": [
+      2,
+      2
+    ],
+    "block_norm": "L2-Hys",
+    "transform_sqrt": true,
+    "feature_vector": true
+  },
+  "lbp_params": {
+    "image_size": 128,
+    "P": 8,
+    "R": 1,
+    "method": "uniform"
+  },
+  "random_seed": 42,
+  "class_order": [
+    "A+",
+    "A-",
+    "AB+",
+    "AB-",
+    "B+",
+    "B-",
+    "O+",
+    "O-"
+  ],
+  "scaler_fitted_on": "train_only",
+  "hyperparameter_selection": "validation_macro_f1",
+  "test_set_usage": "final_evaluation_once",
+  "disclaimer": "Classical ML experiments use master_split.csv only. Heuristic features are not clinical biomarkers."
+}

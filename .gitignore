@@ -8,6 +8,8 @@ storage/tmp/
 node_modules/
 frontend/dist/
 models/registry/**/cache/
+results/experiments/**/pipeline.joblib
+results/experiments/**/features*.npz
 *.log
 .ipynb_checkpoints/
 .vscode/

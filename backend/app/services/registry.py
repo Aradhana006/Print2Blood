@@ -33,8 +33,10 @@ def ensure_resnet50_v1_registered(db: Session, settings: Settings) -> ModelVersi
             split_type="random_image_split_notebook",
             notes=(
                 "Imported existing trained weights without modification. "
-                "Reported 81.42% accuracy comes from the original random 80/20 notebook split "
-                "and is NOT a leakage-controlled evaluation."
+                "Historical metrics: 81.42% accuracy and ~0.82 weighted F1 from code/Resnet34/Resnet.ipynb "
+                "on a random 80/20 image split (test split also used as validation during training). "
+                "NOT evaluated on data/splits/master_split.csv. "
+                "Run scripts/eval_cnn_master_split.py for master-split test metrics."
             ),
         )
         db.add(model)
@@ -61,7 +63,9 @@ def ensure_resnet50_v1_registered(db: Session, settings: Settings) -> ModelVersi
         "status": model.status,
         "is_active": model.is_active,
         "accuracy": model.accuracy,
+        "accuracy_source": "code/Resnet34/Resnet.ipynb random 80/20 image split (historical)",
         "macro_f1": model.macro_f1,
+        "macro_f1_source": "notebook classification report (approximate; not master-split macro F1)",
         "split_type": model.split_type,
         "class_labels": settings.class_labels,
         "preprocessing_version": "resnet50.preprocess_input@256",
@@ -74,7 +78,7 @@ def ensure_resnet50_v1_registered(db: Session, settings: Settings) -> ModelVersi
         "macro_f1": model.macro_f1,
         "split_type": model.split_type,
         "source": "code/Resnet34/Resnet.ipynb saved output",
-        "warning": "Not evaluated under leakage-controlled proxy split yet.",
+        "warning": "Historical notebook split only. Use scripts/eval_cnn_master_split.py for master-split test metrics.",
     }
     (registry_dir / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     return model

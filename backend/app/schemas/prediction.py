@@ -14,8 +14,12 @@ class ProbabilityItem(BaseModel):
 class PredictResponse(BaseModel):
     request_id: str
     prediction: str = Field(description="Model prediction label (not a confirmed blood group)")
-    confidence: float
-    probabilities: Dict[str, float]
+    confidence: float = Field(
+        description="Uncalibrated softmax score for the predicted class (not a clinical probability)"
+    )
+    probabilities: Dict[str, float] = Field(
+        description="Per-class softmax scores (sum ≈ 1; not calibrated probabilities)"
+    )
     top3: List[ProbabilityItem]
     model_name: str
     model_version: str

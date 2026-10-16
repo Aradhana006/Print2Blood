@@ -3,7 +3,7 @@
   "model_name": "ResNet50",
   "version": "v1",
   "architecture": "ResNet50",
-  "weights_path": "G:\\fingerprint-based-blood-group-detection-main\\test\\model_blood_group_detection_resnet.h5",
+  "weights_path": "C:\\Users\\Aradhana S\\Documents\\GitHub\\Print2Blood\\test\\model_blood_group_detection_resnet.h5",
   "image_size": 256,
   "status": "DEPLOYED",
   "is_active": true,

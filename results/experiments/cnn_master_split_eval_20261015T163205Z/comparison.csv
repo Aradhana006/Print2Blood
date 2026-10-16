@@ -1,0 +1,2 @@
+model,split,split_protocol,test_accuracy,test_macro_precision,test_macro_recall,test_macro_f1,test_support,historical_notebook_accuracy_random_80_20
+resnet50_v1_deployed_weights,test,master_split.csv,1.0,0.125,0.125,0.125,40,0.8142

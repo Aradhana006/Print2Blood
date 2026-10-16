@@ -1,0 +1,9 @@
+# Research / offline experiments (install alongside backend venv)
+# pip install -r requirements-research.txt
+
+pandas>=2.0.0
+scikit-learn>=1.3.0
+scikit-image>=0.22.0
+scipy>=1.11.0
+joblib>=1.3.0
+pytest>=8.0.0

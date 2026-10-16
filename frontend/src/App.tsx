@@ -244,7 +244,7 @@ export default function App() {
                 <p className="text-[11px] uppercase tracking-[0.16em] text-neutral-400">Model prediction</p>
                 <p className="mt-1 text-5xl font-semibold text-white">{result.prediction}</p>
                 <p className="mt-2 text-sm text-neutral-300">
-                  {(result.confidence * 100).toFixed(1)}% · {result.confidence_band.level} confidence
+                  {(result.confidence * 100).toFixed(1)}% softmax score · {result.confidence_band.level} band
                 </p>
                 <p className="mt-1 text-xs text-neutral-500">{result.confidence_band.meaning}</p>
               </div>
@@ -282,7 +282,7 @@ export default function App() {
               </div>
 
               <div>
-                <p className="mb-2 text-sm font-medium text-neutral-200">Class scores</p>
+                <p className="mb-2 text-sm font-medium text-neutral-200">Class scores (softmax, uncalibrated)</p>
                 <ul className="space-y-2">
                   {scores.map(([label, prob]) => (
                     <li key={label}>

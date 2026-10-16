@@ -1,0 +1,20 @@
+{
+  "experiment_type": "cnn_offline_eval",
+  "weights_path": "C:\\Users\\Aradhana S\\Documents\\GitHub\\Print2Blood\\test\\model_blood_group_detection_resnet.h5",
+  "weights_modified": false,
+  "master_split": "data/splits/master_split.csv",
+  "preprocessing": "resnet50.preprocess_input@256",
+  "class_order": [
+    "A+",
+    "A-",
+    "AB+",
+    "AB-",
+    "B+",
+    "B-",
+    "O+",
+    "O-"
+  ],
+  "image_size": 256,
+  "evaluated_at_utc": "2026-10-15T16:32:05.884272+00:00",
+  "disclaimer": "Metrics reflect master-split test images only. Historical 81.42% came from random 80/20 notebook split and is not comparable without caveats."
+}

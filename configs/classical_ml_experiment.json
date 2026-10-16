@@ -1,0 +1,46 @@
+{
+  "master_split": "data/splits/master_split.csv",
+  "output_base": "results/experiments",
+  "feature_representation": "hog",
+  "hog": {
+    "image_size": 128,
+    "orientations": 9,
+    "pixels_per_cell": [8, 8],
+    "cells_per_block": [2, 2],
+    "block_norm": "L2-Hys",
+    "transform_sqrt": true,
+    "feature_vector": true
+  },
+  "lbp": {
+    "image_size": 128,
+    "P": 8,
+    "R": 1,
+    "method": "uniform"
+  },
+  "concat_hog_lbp": false,
+  "random_seed": 42,
+  "classifiers": {
+    "svm": {
+      "param_grid": [
+        {"C": 0.1, "kernel": "linear"},
+        {"C": 1.0, "kernel": "linear"},
+        {"C": 10.0, "kernel": "linear"},
+        {"C": 1.0, "kernel": "rbf", "gamma": "scale"}
+      ]
+    },
+    "random_forest": {
+      "param_grid": [
+        {"n_estimators": 100, "max_depth": null, "min_samples_leaf": 1},
+        {"n_estimators": 200, "max_depth": 20, "min_samples_leaf": 2}
+      ]
+    },
+    "gradient_boosting": {
+      "param_grid": [
+        {"n_estimators": 80, "learning_rate": 0.1, "max_depth": 3},
+        {"n_estimators": 120, "learning_rate": 0.05, "max_depth": 2}
+      ]
+    }
+  },
+  "selection_metric": "macro_f1",
+  "disclaimer": "Classical ML experiments use master_split.csv only. Heuristic features are not clinical biomarkers."
+}

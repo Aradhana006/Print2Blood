@@ -1,0 +1,4 @@
+model,feature_representation,best_params,validation_macro_f1,test_accuracy,test_macro_precision,test_macro_recall,test_macro_f1,test_support
+svm,hog,"{""C"": 0.1, ""kernel"": ""linear""}",0.894801,0.928889,0.931263,0.930331,0.930634,900
+random_forest,hog,"{""n_estimators"": 200, ""max_depth"": 20, ""min_samples_leaf"": 2}",0.878645,0.888889,0.893187,0.889417,0.890856,900
+gradient_boosting,hog,"{""n_estimators"": 120, ""learning_rate"": 0.05, ""max_depth"": 2}",0.867212,0.878889,0.881503,0.880784,0.881048,900

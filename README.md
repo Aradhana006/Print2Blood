@@ -27,7 +27,19 @@ Open:
 - Frontend: http://localhost:5173
 - API docs: http://localhost:8000/docs
 
-Primary workflow: **Scan fingerprint → upload image → Analyze → model prediction + probabilities**.
+Primary workflow: **Scan fingerprint → upload image → Analyze → model prediction + class scores** (softmax, uncalibrated).
+
+### Research experiments (master split)
+
+Offline comparative study (HOG + classical ML, CNN re-eval on `master_split.csv`):
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-research.txt
+.\.venv\Scripts\python.exe scripts\run_classical_ml_experiment.py
+.\.venv\Scripts\python.exe scripts\eval_cnn_master_split.py
+```
+
+See [docs/RESEARCH_REPRODUCIBILITY.md](docs/RESEARCH_REPRODUCIBILITY.md). The deployed **81.42%** figure is from the **historical random 80/20 notebook split**, not the master split.
 
 ### Test with your own images
 - Prediction now: just upload on **Scan fingerprint** (no labels needed).

@@ -45,8 +45,12 @@ export function ModelsPage() {
                 <dd>{model.image_size}×{model.image_size}</dd>
               </div>
               <div>
-                <dt className="text-[var(--muted)]">Notebook accuracy</dt>
-                <dd>{model.accuracy != null ? `${(model.accuracy * 100).toFixed(2)}%` : 'Not evaluated yet'}</dd>
+                <dt className="text-[var(--muted)]">Historical notebook accuracy</dt>
+                <dd>
+                  {model.accuracy != null
+                    ? `${(model.accuracy * 100).toFixed(2)}% (random 80/20 split, not master split)`
+                    : 'Not evaluated yet'}
+                </dd>
               </div>
               <div>
                 <dt className="text-[var(--muted)]">Macro F1</dt>

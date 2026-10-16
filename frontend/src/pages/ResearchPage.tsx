@@ -13,8 +13,8 @@ export function ResearchPage() {
             <li>You upload a fingerprint image (BMP/PNG/JPG) on the Scan page.</li>
             <li>The backend checks the file is a real readable image.</li>
             <li>It resizes the image to 256×256 and applies ResNet preprocessing.</li>
-            <li>The approved AI model (ResNet50 v1) outputs 8 probabilities: A+, A-, AB+, AB-, B+, B-, O+, O-.</li>
-            <li>The highest score is shown as the model prediction, with confidence and a chart.</li>
+            <li>The approved AI model (ResNet50 v1) outputs 8 softmax class scores: A+, A-, AB+, AB-, B+, B-, O+, O-.</li>
+            <li>The highest score is shown as the model prediction (uncalibrated; not a lab probability).</li>
             <li>By default the raw image is deleted after analysis; only a hash + prediction are saved.</li>
           </ol>
         </section>
